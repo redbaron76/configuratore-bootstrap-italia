@@ -1,78 +1,80 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 
-import logo from './logo.svg';
+import { readFile } from "./utils";
 
-import './App.css';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-class App extends Component {
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
+import "./App.css";
+
+const App = () => {
+  const [colors, setColors] = useState({});
+
+  const setHexColor = (color, value) => {
+    let hex = "#" + value;
+    colors[color].hex = hex;
+    setColors({ ...colors });
+    console.log("setHexColor", value);
   };
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
+  useEffect(async () => {
+    const response = await fetch("/api/colors");
+    const colors = await response.json();
+    setColors(colors);
+  }, []);
 
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
-  handleSubmit = async e => {
-    e.preventDefault();
-    const response = await fetch('/api/world', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.post }),
-    });
-    const body = await response.text();
-
-    this.setState({ responseToPost: body });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Bootstrap-Italia Theme Color Configurator</title>
+        <style type="text/css">
+          {`
+          body {
+          }
+        `}
+        </style>
+      </Helmet>
+      <Header />
+      <main>
+        <section className="p-5">
+          <div className="container">
+            <form className="px-4">
+              {Object.keys(colors).map((color, i) => {
+                let hex = colors[color].hex.replace("#", "");
+                return (
+                  <div key={"color - " + i} className="form-group">
+                    <h6 className="">{`$${color}`}</h6>
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">#</span>
+                      </div>
+                      <input
+                        className="form-control col-2"
+                        name={color}
+                        value={hex}
+                        onChange={e => setHexColor(color, e.target.value)}
+                      />
+                      <div className="input-group-append">
+                        <div
+                          className="box-color-preview"
+                          id={color}
+                          style={{ backgroundColor: "#" + hex }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </form>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
