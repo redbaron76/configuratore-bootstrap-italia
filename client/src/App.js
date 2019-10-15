@@ -10,9 +10,11 @@ import "./App.css";
 
 const App = () => {
   const [colors, setColors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleDownload = async e => {
     e.preventDefault();
+    setLoading(true);
     const response = await fetch("/api/colors", {
       headers: {
         Accept: "application/json",
@@ -23,6 +25,7 @@ const App = () => {
     });
     const zipBlob = await response.blob();
     download(zipBlob, "bootstrap-italia-custom-css.zip");
+    setLoading(false);
   };
 
   const setHexColor = (color, value) => {
@@ -91,8 +94,21 @@ const App = () => {
               })}
               <div className="row">
                 <div className="col">
-                  <button className="btn btn-primary" onClick={handleDownload}>
-                    Download CSS
+                  <button
+                    className={`btn btn-${loading ? "secondary" : "primary"}`}
+                    onClick={handleDownload}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <i className="fa fa-refresh fa-spin fa-fw" />
+                    ) : (
+                      <i className="fa fa-cloud-download" />
+                    )}
+                    {loading ? (
+                      <span>Elaborazione in corso...</span>
+                    ) : (
+                      <span>Download CSS</span>
+                    )}
                   </button>
                 </div>
               </div>
