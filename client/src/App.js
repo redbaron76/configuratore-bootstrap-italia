@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import download from "downloadjs";
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
-
-import { readFile } from "./utils";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,17 +11,40 @@ import "./App.css";
 const App = () => {
   const [colors, setColors] = useState({});
 
-  const setHexColor = (color, value) => {
-    let hex = "#" + value;
-    colors[color].hex = hex;
-    setColors({ ...colors });
-    console.log("setHexColor", value);
+  const handleDownload = async e => {
+    e.preventDefault();
+    console.log("handleDownload", colors);
+    const response = await fetch("/api/colors", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify(colors)
+    });
+    const zipBlob = await response.blob();
+    download(zipBlob, "bootstrap-italia-custom-css.zip");
   };
 
-  useEffect(async () => {
-    const response = await fetch("/api/colors");
-    const colors = await response.json();
-    setColors(colors);
+  const setHexColor = (color, value) => {
+    let hex = value ? "#" + value : value;
+    // Set custom hex color
+    colors[color].hex = hex;
+    // Set specific color on type hex
+    setColors({ ...colors });
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      // Get GitHub colors
+      const response = await fetch("/api/colors");
+      // Decode default colors
+      const colors = await response.json();
+      // Set default colors
+      setColors(colors);
+    }
+    fetchData();
+    // run onLoad
   }, []);
 
   return (
@@ -68,6 +90,13 @@ const App = () => {
                   </div>
                 );
               })}
+              <div className="row">
+                <div className="col">
+                  <button className="btn btn-primary" onClick={handleDownload}>
+                    Download CSS
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </section>

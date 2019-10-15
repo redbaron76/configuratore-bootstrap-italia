@@ -1,4 +1,4 @@
-export const readFile = async filePath => {
+/* export const readFile = async filePath => {
   if (filePath) {
     console.log(filePath);
     fetch(
@@ -6,4 +6,4 @@ export const readFile = async filePath => {
       { mode: "no-cors" }
     ).then(response => console.log("response", response));
   }
-};
+}; */

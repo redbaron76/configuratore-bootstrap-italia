@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const fetch = require("node-fetch");
+const fs = require("fs-extra");
 const bodyParser = require("body-parser");
 
 const utils = require("./utils/index");
@@ -8,31 +8,66 @@ const utils = require("./utils/index");
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(express.static("public"));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// API calls
-app.get("/api/hello", (req, res) => {
-  res.send({ express: "Hello From Express" });
-});
+// declare color_vars variable
+let COLOR_VARS;
 
-app.post("/api/world", (req, res) => {
-  console.log(req.body);
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`
-  );
-});
+// API calls
 
 app.get("/api/colors", async (req, res) => {
-  const content = await fetch(
-    "https://raw.githubusercontent.com/italia/bootstrap-italia/master/src/scss/utilities/colors_vars.scss"
-  );
-  let text = await content.text();
-  let colors = utils.parseResponse(text);
+  // get colors from GitHub
+  let COLOR_VARS = await utils.fetchColors();
 
-  console.log("colors", colors);
+  try {
+    // parse and sent to client
+    let colors = utils.parseResponse(COLOR_VARS);
+    res.send(colors);
+  } catch (e) {
+    console.log("ERROR", e);
+  }
+});
 
-  res.send(colors);
+app.post("/api/colors", async (req, res) => {
+  // get custom colors obj from client form
+  const customColors = req.body;
+
+  // get COLOR_VARS if not fetched
+  if (!COLOR_VARS) COLOR_VARS = await utils.fetchColors();
+
+  // process custom colors
+  if (customColors) {
+    // rewrite changed colors
+    COLOR_VARS = await utils.rewriteColors(customColors, COLOR_VARS);
+  }
+
+  // console.log("COLOR_VARS", COLOR_VARS);
+
+  // download - unzip - extract scss - delete rest in a TMP folder
+  const tmpPath = await utils.downloadMasterZip();
+
+  // console.log("tmpPath", tmpPath);
+
+  // create new colors_vars.scss
+  const zipFolderPath = await utils.writeNewColorsVars(tmpPath, COLOR_VARS);
+
+  // console.log("zipFolderPath", zipFolderPath);
+
+  // zip folder and download
+  const zipFilePath = await utils.zipCssAndSave(zipFolderPath);
+
+  // console.log("zipFilePath", zipFilePath);
+
+  // send download response to client
+  res.download(zipFilePath, zipFilePath.split("/").pop(), async err => {
+    await fs.remove(tmpPath);
+    console.log("CB Delete", tmpPath);
+  });
+
+  // console.log("END");
 });
 
 if (process.env.NODE_ENV === "production") {

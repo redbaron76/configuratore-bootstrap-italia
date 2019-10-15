@@ -3,6 +3,9 @@
 # dependencies
 node_modules
 
+# downloads folder
+public
+
 # testing
 coverage
 
