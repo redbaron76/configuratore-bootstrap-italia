@@ -44,27 +44,18 @@ app.post("/api/colors", async (req, res) => {
     COLOR_VARS = await utils.rewriteColors(customColors, COLOR_VARS);
   }
 
-  // console.log("COLOR_VARS", COLOR_VARS);
-
   // download - unzip - extract scss - delete rest in a TMP folder
   const tmpPath = await utils.downloadMasterZip();
-
-  // console.log("tmpPath", tmpPath);
 
   // create new colors_vars.scss
   const zipFolderPath = await utils.writeNewColorsVars(tmpPath, COLOR_VARS);
 
-  // console.log("zipFolderPath", zipFolderPath);
-
   // zip folder and download
   const zipFilePath = await utils.zipCssAndSave(zipFolderPath);
-
-  // console.log("zipFilePath", zipFilePath);
 
   // send download response to client
   res.download(zipFilePath, zipFilePath.split("/").pop(), async err => {
     await fs.remove(tmpPath);
-    console.log("CB Delete", tmpPath);
   });
 
   // console.log("END");

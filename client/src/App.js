@@ -13,7 +13,6 @@ const App = () => {
 
   const handleDownload = async e => {
     e.preventDefault();
-    console.log("handleDownload", colors);
     const response = await fetch("/api/colors", {
       headers: {
         Accept: "application/json",
