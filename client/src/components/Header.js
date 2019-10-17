@@ -7,9 +7,12 @@ const Header = () => (
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="it-header-slim-wrapper-content">
-              <a className="d-lg-block navbar-brand" href="#">
-                Bootstrap-Italia Theme Color Configurator
+            <div className="it-header-slim-wrapper-content font-weight-bold">
+              <a
+                className="d-lg-block navbar-brand"
+                href="https://italia.github.io/bootstrap-italia/"
+              >
+                Bootstrap-Italia - Configuratore Tema / Colore
               </a>
             </div>
           </div>
@@ -24,7 +27,7 @@ const Header = () => (
             <div className="col-12">
               <div className="it-header-center-content-wrapper">
                 <div className="it-brand-wrapper">
-                  <a href="#">
+                  <a href="https://italia.github.io/bootstrap-italia/">
                     <svg className="icon">
                       <use xlinkHref={`${sprite}#it-pa`}></use>
                     </svg>
@@ -41,21 +44,33 @@ const Header = () => (
                     <span>Seguici su</span>
                     <ul>
                       <li>
-                        <a aria-label="Facebook" href="#" target="_blank">
+                        <a
+                          aria-label="Facebook"
+                          href="https://italia.github.io/bootstrap-italia/"
+                          target="_blank"
+                        >
                           <svg className="icon">
                             <use xlinkHref={`${sprite}#it-facebook`}></use>
                           </svg>
                         </a>
                       </li>
                       <li>
-                        <a aria-label="Github" href="#" target="_blank">
+                        <a
+                          aria-label="Github"
+                          href="https://italia.github.io/bootstrap-italia/"
+                          target="_blank"
+                        >
                           <svg className="icon">
                             <use xlinkHref={`${sprite}#it-github`}></use>
                           </svg>
                         </a>
                       </li>
                       <li>
-                        <a aria-label="Twitter" href="#" target="_blank">
+                        <a
+                          aria-label="Twitter"
+                          href="https://italia.github.io/bootstrap-italia/"
+                          target="_blank"
+                        >
                           <svg className="icon">
                             <use xlinkHref={`${sprite}#it-twitter`}></use>
                           </svg>
@@ -68,7 +83,7 @@ const Header = () => (
                     <a
                       aria-label="Cerca"
                       className="search-link rounded-icon"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                     >
                       <svg className="icon">
                         <use xlinkHref={`${sprite}#it-search`}></use>

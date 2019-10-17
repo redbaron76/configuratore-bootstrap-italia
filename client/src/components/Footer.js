@@ -9,7 +9,7 @@ const Footer = () => (
           <div className="row clearfix">
             <div className="col-sm-12">
               <div className="it-brand-wrapper">
-                <a href="#">
+                <a href="https://italia.github.io/bootstrap-italia/">
                   <svg className="icon">
                     <use xlinkHref={`${sprite}#it-pa`}></use>
                   </svg>
@@ -28,7 +28,10 @@ const Footer = () => (
           <div className="row">
             <div className="col-lg-3 col-md-3 col-sm-6 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Amministrazione">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Amministrazione"
+                >
                   Amministrazione
                 </a>
               </h4>
@@ -37,7 +40,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Giunta e consiglio"
                     >
                       Giunta e consiglio
@@ -46,7 +49,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Aree di competenza"
                     >
                       Aree di competenza
@@ -55,7 +58,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Dipendenti"
                     >
                       Dipendenti
@@ -64,7 +67,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Luoghi"
                     >
                       Luoghi
@@ -73,7 +76,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Associazioni e società partecipate"
                     >
                       Associazioni e società partecipate
@@ -84,7 +87,10 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Servizi">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Servizi"
+                >
                   Servizi
                 </a>
               </h4>
@@ -93,7 +99,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Pagamenti"
                     >
                       Pagamenti
@@ -102,7 +108,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Sostegno"
                     >
                       Sostegno
@@ -111,7 +117,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Domande e iscrizioni"
                     >
                       Domande e iscrizioni
@@ -120,7 +126,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Segnalazioni"
                     >
                       Segnalazioni
@@ -129,7 +135,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Autorizzazioni e concessioni"
                     >
                       Autorizzazioni e concessioni
@@ -138,7 +144,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Certificati e dichiarazioni"
                     >
                       Certificati e dichiarazioni
@@ -149,7 +155,10 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Novità">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Novità"
+                >
                   Novità
                 </a>
               </h4>
@@ -158,7 +167,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Notizie"
                     >
                       Notizie
@@ -167,7 +176,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Eventi"
                     >
                       Eventi
@@ -176,7 +185,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Comunicati stampa"
                     >
                       Comunicati stampa
@@ -187,7 +196,10 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 col-sm-6">
               <h4>
-                <a href="#" title="Vai alla pagina: Documenti">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Documenti"
+                >
                   Documenti
                 </a>
               </h4>
@@ -196,7 +208,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Progetti e attività"
                     >
                       Progetti e attività
@@ -205,7 +217,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Delibere, determine e ordinanze"
                     >
                       Delibere, determine e ordinanze
@@ -214,7 +226,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Bandi"
                     >
                       Bandi
@@ -223,7 +235,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Concorsi"
                     >
                       Concorsi
@@ -232,7 +244,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Albo pretorio"
                     >
                       Albo pretorio
@@ -247,7 +259,10 @@ const Footer = () => (
           <div className="row">
             <div className="col-lg-3 col-md-3 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Amministrazione">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Amministrazione"
+                >
                   Amministrazione trasparente
                 </a>
               </h4>
@@ -259,7 +274,10 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Contatti">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Contatti"
+                >
                   Contatti
                 </a>
               </h4>
@@ -274,7 +292,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: Posta Elettronica Certificata"
                     >
                       Posta Elettronica Certificata
@@ -283,7 +301,7 @@ const Footer = () => (
                   <li>
                     <a
                       className="list-item"
-                      href="#"
+                      href="https://italia.github.io/bootstrap-italia/"
                       title="Vai alla pagina: URP - Ufficio Relazioni con il Pubblico"
                     >
                       URP - Ufficio Relazioni con il Pubblico
@@ -294,7 +312,10 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Newsletter">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Newsletter"
+                >
                   Newsletter
                 </a>
               </h4>
@@ -322,13 +343,20 @@ const Footer = () => (
             </div>
             <div className="col-lg-3 col-md-3 pb-2">
               <h4>
-                <a href="#" title="Vai alla pagina: Seguici su">
+                <a
+                  href="https://italia.github.io/bootstrap-italia/"
+                  title="Vai alla pagina: Seguici su"
+                >
                   Seguici su
                 </a>
               </h4>
               <ul className="list-inline text-left social">
                 <li className="list-inline-item">
-                  <a className="p-2 text-white" href="#" target="_blank">
+                  <a
+                    className="p-2 text-white"
+                    href="https://italia.github.io/bootstrap-italia/"
+                    target="_blank"
+                  >
                     <svg className="icon icon-sm icon-white align-top">
                       <use xlinkHref={`${sprite}#it-designers-italia`}></use>
                     </svg>
@@ -336,7 +364,11 @@ const Footer = () => (
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="p-2 text-white" href="#" target="_blank">
+                  <a
+                    className="p-2 text-white"
+                    href="https://italia.github.io/bootstrap-italia/"
+                    target="_blank"
+                  >
                     <svg className="icon icon-sm icon-white align-top">
                       <use xlinkHref={`${sprite}#it-twitter`}></use>
                     </svg>
@@ -344,7 +376,11 @@ const Footer = () => (
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="p-2 text-white" href="#" target="_blank">
+                  <a
+                    className="p-2 text-white"
+                    href="https://italia.github.io/bootstrap-italia/"
+                    target="_blank"
+                  >
                     <svg className="icon icon-sm icon-white align-top">
                       <use xlinkHref={`${sprite}#it-medium`}></use>
                     </svg>
@@ -352,7 +388,11 @@ const Footer = () => (
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="p-2 text-white" href="#" target="_blank">
+                  <a
+                    className="p-2 text-white"
+                    href="https://italia.github.io/bootstrap-italia/"
+                    target="_blank"
+                  >
                     <svg className="icon icon-sm icon-white align-top">
                       <use xlinkHref={`${sprite}#it-behance`}></use>
                     </svg>
@@ -370,22 +410,34 @@ const Footer = () => (
         <h3 className="sr-only">Sezione Link Utili</h3>
         <ul className="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
           <li className="list-inline-item">
-            <a href="#" title="Note Legali">
+            <a
+              href="https://italia.github.io/bootstrap-italia/"
+              title="Note Legali"
+            >
               Media policy
             </a>
           </li>
           <li className="list-inline-item">
-            <a href="#" title="Note Legali">
+            <a
+              href="https://italia.github.io/bootstrap-italia/"
+              title="Note Legali"
+            >
               Note legali
             </a>
           </li>
           <li className="list-inline-item">
-            <a href="#" title="Privacy-Cookies">
+            <a
+              href="https://italia.github.io/bootstrap-italia/"
+              title="Privacy-Cookies"
+            >
               Privacy policy
             </a>
           </li>
           <li className="list-inline-item">
-            <a href="#" title="Mappa del sito">
+            <a
+              href="https://italia.github.io/bootstrap-italia/"
+              title="Mappa del sito"
+            >
               Mappa del sito
             </a>
           </li>

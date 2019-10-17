@@ -8,9 +8,13 @@
   border-right: none;
 }
 
+.input-group {
+  width: 230px;
+}
+
 .box-color-preview {
-  width: 45px;
-  height: 45px;
+  width: 2.5rem;
+  height: 2.5rem;
   border: 1px solid black;
   margin-left: 20px;
 }

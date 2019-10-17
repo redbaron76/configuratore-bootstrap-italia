@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const utils = require("./utils/index");
 
 const app = express();
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 const port = process.env.PORT || 5000;
 
 app.use(express.static("public"));
@@ -36,16 +38,74 @@ app.post("/api/colors", async (req, res) => {
   const customColors = req.body;
 
   // get COLOR_VARS if not fetched
-  if (!COLOR_VARS) COLOR_VARS = await utils.fetchColors();
+  if (!COLOR_VARS) {
+    io.emit("status", {
+      type: "fetching",
+      data: {
+        text: "Scarico la palette predefinita da GitHub...",
+        icon: false
+      }
+    });
+
+    COLOR_VARS = await utils.fetchColors();
+
+    io.emit("status", {
+      type: "fetching",
+      data: {
+        text: "Scarico la palette predefinita da GitHub",
+        icon: true
+      }
+    });
+  }
 
   // process custom colors
   if (customColors) {
+    io.emit("status", {
+      type: "rewriting",
+      data: {
+        text: "Applico la nuova palette colori impostata...",
+        icon: false
+      }
+    });
+
     // rewrite changed colors
     COLOR_VARS = await utils.rewriteColors(customColors, COLOR_VARS);
+
+    io.emit("status", {
+      type: "rewriting",
+      data: {
+        text: "Applico la nuova palette colori impostata",
+        icon: true
+      }
+    });
   }
+
+  io.emit("status", {
+    type: "grabbing",
+    data: {
+      text: "Ottengo ultima release di Bootstrap-Italia...",
+      icon: false
+    }
+  });
 
   // download - unzip - extract scss - delete rest in a TMP folder
   const tmpPath = await utils.downloadMasterZip();
+
+  io.emit("status", {
+    type: "grabbing",
+    data: {
+      text: "Ottengo ultima release di Bootstrap-Italia",
+      icon: true
+    }
+  });
+
+  io.emit("status", {
+    type: "writing",
+    data: {
+      text: "Preparo il nuovo pacchetto Zip da scaricare...",
+      icon: false
+    }
+  });
 
   // create new colors_vars.scss
   const zipFolderPath = await utils.writeNewColorsVars(tmpPath, COLOR_VARS);
@@ -56,6 +116,15 @@ app.post("/api/colors", async (req, res) => {
   // send download response to client
   res.download(zipFilePath, zipFilePath.split("/").pop(), async err => {
     await fs.remove(tmpPath);
+  });
+
+  io.emit("status", {
+    type: "writing",
+    data: {
+      text:
+        "<strong>bootstrap-italia-custom-css.zip</strong> pronto per il download!",
+      icon: true
+    }
   });
 
   // console.log("END");
@@ -71,4 +140,16 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+server.listen(port, () => console.log(`Listening on port ${port}`));
+
+io.on("connection", socket => {
+  console.log("Socket.io CONNECTED");
+  socket.emit("status", {
+    type: "connected",
+    data: {
+      text:
+        'Clicca il tasto <strong>"Download"</strong> per ottenere il file CSS',
+      icon: true
+    }
+  });
+});
