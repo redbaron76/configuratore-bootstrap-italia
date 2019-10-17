@@ -161,6 +161,26 @@ const App = () => {
                 </form>
               </div>
               <div className="col-sm-6">
+                <div className="col p-4">
+                  <button
+                    className={`btn btn-block btn-${
+                      loading ? "secondary" : "primary"
+                    }`}
+                    onClick={handleDownload}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <i className="fa fa-refresh fa-spin fa-fw" />
+                    ) : (
+                      <i className="fa fa-cloud-download" />
+                    )}
+                    {loading ? (
+                      <span>Elaborazione in corso...</span>
+                    ) : (
+                      <span>Download Custom CSS</span>
+                    )}
+                  </button>
+                </div>
                 <div className="px-4">
                   {Object.keys(status).map((s, i) => {
                     let o = status[s];
@@ -177,7 +197,7 @@ const App = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col p-4">
+              {/* <div className="col p-4">
                 <button
                   className={`btn btn-${loading ? "secondary" : "primary"}`}
                   onClick={handleDownload}
@@ -194,7 +214,7 @@ const App = () => {
                     <span>Download Custom CSS</span>
                   )}
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
