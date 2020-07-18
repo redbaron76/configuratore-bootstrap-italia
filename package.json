@@ -22,7 +22,7 @@
     "colr": "^1.2.2",
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "node-fetch": "^2.6.0",
     "node-sass-promise": "^1.0.0",
     "node-wget-promise": "^0.1.6",
