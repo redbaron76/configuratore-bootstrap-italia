@@ -27,7 +27,7 @@
     "node-sass-promise": "^1.0.0",
     "node-wget-promise": "^0.1.6",
     "owl.carousel": "^2.3.4",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"
